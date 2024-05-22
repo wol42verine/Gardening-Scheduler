@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Great Gardening App!</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" integrity="sha384-ZBk+2mwrvpiD9rs8fSwhrTYO7PBQeqVB6Qm3e5URO+J2R9D+3AfZ3n5qGvY16x9X" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css"
+        crossorigin="anonymous">
+    <!-- Fonts -->
 
-<!-- Fonts -->
-
-<!-- custom css -->
+    <!-- custom css -->
 
 </head>
 
 <body>
     <main class="grid-container">
         <div class="grid-x grid-margin-x">
-    <div id="left">
-        <h2>Plant Ditailes</h2>
+            <div class="cell small-12 medium-6" id="left">
+                <h2>Plant Details</h2>
 
-            
-        <button type="submit" class="button" data-open="plant-modal">choose the plant </button>
-       
-    </div>
 
-    <div>
-        <h2>Weather Forecast</h2>
+                <p><button class="button" data-open="plant-modal">Choose the Plant </button></p>
+
+            </div>
+
+            <!-- <div>
+        <h2>Weather Forecast</h2> -->
             <!-- the source: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date-->
 
             <!-- the source: https://www.w3schools.com/tags/tag_form.asp. The <form> tag is used to create an HTML form for user input.-->
-            <form>
-                <!-- the source: https://www.w3schools.com/tags/tag_label.asp. The <label> tag defines a label for several elements. For exmaple for <input type="date"> -->
-                <label>
+            <!-- <form> -->
+            <!-- the source: https://www.w3schools.com/tags/tag_label.asp. The <label> tag defines a label for several elements. For exmaple for <input type="date"> -->
+            <!-- <label>
                   Choose the date:
                   <input type="date" />
                 </label>
@@ -46,33 +47,44 @@
                 </div>
             </div>
 
+    </div> -->
+    </main>
+
+    <!-- Code for Garden Modal-->
+    <p><a data-open="plant-modal"> data-open="settings-modal"Click Text</a></p>
+
+    <div class="reveal" id="plant-modal" data-reveal>
+        <h2>Plant Details</h2>
+        <p class="lead">test text</p>
+        <p>Input plant details here.</p>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
-</main>
 
-<!-- Code for Grden Modal-->
-<div class="reveal" id="plant-modal" data-reveal>
-    <h2>Plant Details</h2>
-    <p>Input plant details here.</p>
-    <button class="close-button" data-close aria-label="Close modal" type="button">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-
-<footer class="garden-footer">
-    <div class="footer-container">
-        <!-- needs our names and group names -->
-        <!-- <div class="quick-guide"></div>
+    <footer class="garden-footer">
+        <div class="footer-container">
+            <!-- needs our names and group names -->
+            <!-- <div class="quick-guide"></div>
         <div class="quote"></div>
         <div class="social-medias"></div> -->
-        <p>M5: Joe Sandoval, Maryna Martseniuk, Kai Burgess, Olivier Ndicunguye, Shobha Ganesh</p>
-        <p>The Great Gardening App</p>
-    </div>
-</footer>
+            <p>M5: Joe Sandoval, Maryna Martseniuk, Kai Burgess, Olivier Ndicunguye, Shobha Ganesh</p>
+            <p>The Great Gardening App</p>
+        </div>
+    </footer>
 
-<!-- js -->
+    <!-- js -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/6VsEld5brM1Xn5tKfplVbBKuym2e5xjKL2K5V1"
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js"
+        crossorigin="anonymous"></script>
+    <!-- <script>
+    $(document).foundation();
+</script> -->
 
-<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" integrity="sha384-E0GGw1gEYx/2n5P4yNcZnI4xGxvM51Pyd9Jx7DqZ3+3UZ72qvs6jBsU/xG1MB5g6" crossorigin="anonymous"></script>
-<script src="./Assets/javascript.js"></script>
+    <!-- <script src="./Assets/javascript.js"></script> -->
 
 </body>
+
 </html>
