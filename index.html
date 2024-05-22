@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Great Gardening App!</title>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" integrity="sha384-ZBk+2mwrvpiD9rs8fSwhrTYO7PBQeqVB6Qm3e5URO+J2R9D+3AfZ3n5qGvY16x9X" crossorigin="anonymous">
+
 <!-- Fonts -->
 
 <!-- custom css -->
@@ -12,14 +14,14 @@
 </head>
 
 <body>
-<main>
+    <main class="grid-container">
+        <div class="grid-x grid-margin-x">
     <div id="left">
-        <h2>Plant</h2>
-        <section>plant name:</section>
-        <section>plant info:</section>
-        <p>
-            <button>details</button>
-        </p>
+        <h2>Plant Ditailes</h2>
+
+            
+        <button type="submit" class="button" data-open="plant-modal">choose the plant </button>
+       
     </div>
 
     <div>
@@ -47,10 +49,14 @@
     </div>
 </main>
 
-    
-    <!-- js -->
-</body>
-
+<!-- Code for Grden Modal-->
+<div class="reveal" id="plant-modal" data-reveal>
+    <h2>Plant Details</h2>
+    <p>Input plant details here.</p>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
 
 <footer class="garden-footer">
     <div class="footer-container">
@@ -63,5 +69,10 @@
     </div>
 </footer>
 
+<!-- js -->
 
+<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" integrity="sha384-E0GGw1gEYx/2n5P4yNcZnI4xGxvM51Pyd9Jx7DqZ3+3UZ72qvs6jBsU/xG1MB5g6" crossorigin="anonymous"></script>
+<script src="./Assets/javascript.js"></script>
+
+</body>
 </html>
