@@ -22,7 +22,7 @@ $(document).ready(function() {
     // Event listener for plant selection
     $('#plant-select').on('change', function() {
         const plantId = $(this).val();
-        console.log('Selected Plant ID:',plantID)
+        console.log('Selected Plant ID:',plantId)
         if (plantId) {
             fetchPlantDetails(plantId);
         }
