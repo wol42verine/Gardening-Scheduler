@@ -2,87 +2,185 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Great Gardening App!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Great Gardening App!</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css"
-        crossorigin="anonymous">
-    <!-- Fonts -->
 
-    <!-- custom css -->
+  <!-- foundation css link-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css"
+    crossorigin="anonymous">
 
+
+  <!-- Fonts -->
+
+  <!-- custom css -->
+  <link rel="stylesheet" href="./Assets/style.css">
 </head>
 
-<body>
-    <main class="grid-container">
-        <div class="grid-x grid-margin-x">
-            <div class="cell small-12 medium-6" id="left">
-                <h2>Plant Details</h2>
+<body id="wrapper">
 
+  <!-- NAVBAR -->
 
-                <p><button class="button" data-open="plant-modal">Choose the Plant </button></p>
+  <div class="row ">
+    <nav>
+      <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+        <div class="title-bar-title"></div>
+      </div>
 
-            </div>
+      <div class="top-bar" id="responsive-menu">
 
-            <!-- <div>
-        <h2>Weather Forecast</h2> -->
-            <!-- the source: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date-->
-
-            <!-- the source: https://www.w3schools.com/tags/tag_form.asp. The <form> tag is used to create an HTML form for user input.-->
-            <!-- <form> -->
-            <!-- the source: https://www.w3schools.com/tags/tag_label.asp. The <label> tag defines a label for several elements. For exmaple for <input type="date"> -->
-            <!-- <label>
-                  Choose the date:
-                  <input type="date" />
-                </label>
-                <p>
-                  <button>Submit</button>
-                </p>
-            </form>
-            <div>
-                <h3>Result for the weather request:</h3>
-                <div>
-
-                </div>
-            </div>
-
-    </div> -->
-    </main>
-
-    <!-- Code for Garden Modal-->
-    <p><a data-open="plant-modal"> data-open="settings-modal"Click Text</a></p>
-
-    <div class="reveal" id="plant-modal" data-reveal>
-        <h2>Plant Details</h2>
-        <p class="lead">test text</p>
-        <p>Input plant details here.</p>
-        <button class="close-button" data-close aria-label="Close modal" type="button">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-
-    <footer class="garden-footer">
-        <div class="footer-container">
-            <!-- needs our names and group names -->
-            <!-- <div class="quick-guide"></div>
-        <div class="quote"></div>
-        <div class="social-medias"></div> -->
-            <p>M5: Joe Sandoval, Maryna Martseniuk, Kai Burgess, Olivier Ndicunguye, Shobha Ganesh</p>
-            <p>The Great Gardening App</p>
+        <!-- left navbar -->
+        <div class="top-bar-left">
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">Gardening Scheduler</li>
+            <li class="has-submenu"><a href="#0">ABOUT US</a> </li>
+            <li><a href="#0">SERVICES</a></li>
+            <li><a href="#0">CONTACT US</a></li>
+          </ul>
         </div>
-    </footer>
 
-    <!-- js -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js"
-        crossorigin="anonymous"></script>
-    <script>
-    $(document).foundation();
-    console.log($(document).foundation);
+      </div>
+    </nav>
+  </div>
+
+  <!-- End of Navbar -->
+
+
+  <!-- Main Starts -->
+  <main>
+
+<!-- PLANT SECTION starts  -->
+    <section class="plants">
+      <div class="plants-container">
+        <h2>Plants details</h2>
+      </div>
+
+      <div>
+        <p><a data-open="plant-modal"><button class="button success large">Explore the plants</button>
+          </a></p>
+
+        <div class="reveal " id="plant-modal" data-reveal>
+
+          <form>
+
+            <div class="row">
+              <div class="large-12 columns">
+                <label>Select the plant
+                  <select>
+                    <option value="">Loading plants...</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="large-12 columns">
+                <label>Choose the date
+                  <input type="text" placeholder="how old is your plant" />
+                </label>
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="large-12 columns">
+                <button class="button btn success" type="submit">Submit</button>
+              </div>
+
+            </div>
+
+          </form>
+
+          <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+
+        </div>
+      </div>
+    </section>
+
+
+<!-- Weather Section Start -->
+
+    <section class="weather">
+      <div class="plants-container">
+        <h2>Weather Forecast</h2>
+      </div>
+
+      <div>
+        <p><a data-open="weather-modal"><button class="button success large">The Weather</button>
+          </a></p>
+
+        <div class="reveal " id="weather-modal" data-reveal>
+
+          <form>
+
+            <div class="row">
+              <div class="large-12 columns">
+                <label>Select the location
+                  <select>
+                    <option value="">country loading...</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="large-12 columns">
+                <label>Choose the date
+                  <input type="text" placeholder="current date" />
+                </label>
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="large-12 columns">
+                <button class="button btn success" type="submit">Submit</button>
+              </div>
+
+            </div>
+
+          </form>
+
+          <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+
+
+
+
+
+<footer class="garden-footer">
+
+</footer>
+
+</body>
+
+<!-- js -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js"
+  crossorigin="anonymous"></script>
+<script>
+  $(document).foundation();
+  console.log($(document).foundation);
 </script>
 
-    
+
 
 </body>
 

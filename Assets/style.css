@@ -1,4 +1,120 @@
-body {
-    background-color: darkgreen;
-    color: white;
+:root{
+    --text-color:#006400;
+    --main-background: white;
+
 }
+
+body {
+    
+    color: white;
+    position: relative;
+}
+
+
+main{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+}
+
+form{
+    height: 300px;
+    display: flex;
+    gap:20px;
+    flex-direction: column;
+   
+}
+
+label, input{
+    font-size: 18px;
+}
+
+
+
+
+#wrapper {
+    height: 100vh;
+    width: 100%;
+    background-image: url(./Images/background.jpg);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+
+.plants, .weather{
+    width: 500px;
+    height:300px ;
+    background-color: var(--main-background);
+    margin-top: 21%;
+    opacity: 0.5;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap:80px;
+    align-items: center;
+}
+
+
+.plants-container{
+    border-bottom: 0.1px solid black;
+}
+.plants-container h2{
+    color: var(--text-color);
+    font-weight: bold; 
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+  text-align: center;
+  margin-top: 15px;
+  
+}
+
+
+.btn{
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+}
+
+
+.garden-footer{
+    height: 60px;
+    width: 100%;
+    background-color: var(--text-color);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+
+
+
+
+
+
+/* Responsivness */
+
+
+
+@media screen and (max-width: 760px) {
+    main{
+        flex-direction: column;
+    }
+
+    .plants, .weather{
+        margin-top: 80px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
