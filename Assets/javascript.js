@@ -1,65 +1,112 @@
 $(document).foundation();
 
-const apiUrl = 'https://openfarm.cc/api/v1/crops/';
+const apiUrl = 'https://perenual.com/api/species-list?key=sk-nV5Y664fa6394ed345548&page=1';
 
 $(document).ready(function() {
-    // Fetch the list of plants from OpenFarm API
-    fetch(apiUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('network response was not ok' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('API Data:', data);
-            const plants = data.data;
-            console.log('Plants:', plants);
-            populatePlantSelect(plants);
-        })
-        .catch(error => console.error('Error fetching plant data:', error));
-    
+    // Event listener for modal button
+    $('button[data-open="plant-modal"]').on('click', function() {
+        fetchPlantData();
+    });
+
     // Event listener for plant selection
     $('#plant-select').on('change', function() {
         const plantId = $(this).val();
-        console.log('Selected Plant ID:',plantId)
         if (plantId) {
             fetchPlantDetails(plantId);
         }
     });
+
+    // Event listener for dismiss button using event delegation
+    $(document).on('click', '.dismiss-button', function() {
+        const plantId = $(this).closest('.plant-info').data('plant-id');
+        removePlantData(plantId);
+        $(this).closest('.plant-info').remove(); // Remove the closest parent with class 'plant-info'
+    });
+
+    // Load plant data from localStorage when the page is loaded
+    loadSavedPlantData();
 });
+
+// Function to fetch plant data
+function fetchPlantData() {
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const plants = data.data;
+            populatePlantSelect(plants);
+        })
+        .catch(error => console.error('Error fetching plant data:', error));
+}
 
 // Function to populate the plant select dropdown
 function populatePlantSelect(plants) {
     const select = $('#plant-select');
+    select.empty(); // Clear existing options
     select.append('<option value="">Select a plant</option>');
     plants.forEach(plant => {
-        console.log('Plant:',plant);
-        select.append(`<option value="${plant.id}">${plant.attributes.name}</option>`);
+        select.append(`<option value="${plant.id}">${plant.common_name}</option>`);
     });
 }
 
 // Function to fetch and display plant details
 function fetchPlantDetails(plantId) {
-    fetch(`${apiUrl}${plantId}`)
+    fetch(`https://perenual.com/api/species/details/${plantId}?key=sk-nV5Y664fa6394ed345548`)
         .then(response => response.json())
         .then(data => {
-            const plant = data.data.attributes;
-            console.log('Plant Details:',plant);
-            displayPlantInfo(plant);
+            if (data && data.id) {
+                displayPlantInfo(data);
+                // Store plant data in local storage
+                savePlantData(data);
+            } else {
+                console.error('Unexpected plant details data structure:', data);
+            }
         })
         .catch(error => console.error('Error fetching plant details:', error));
 }
 
-// Function to display plant information
-function displayPlantInfo(plant) {
-    const infoDiv = $('#plant-info');
-    infoDiv.html(`
-        <h3>${plant.name}</h3>
-        <p><strong>Description:</strong> ${plant.description}</p>
-        <p><strong>Sun Requirements:</strong> ${plant.sun_requirements}</p>
-        <p><strong>Sowing Method:</strong> ${plant.sowing_method}</p>
-        <img src="${plant.main_image_path}" alt="${plant.name}">
-    `);
+// Function to save plant data in localStorage
+function savePlantData(plant) {
+    let savedPlantData = JSON.parse(localStorage.getItem('plantData')) || [];
+    savedPlantData.push(plant);
+    localStorage.setItem('plantData', JSON.stringify(savedPlantData));
 }
 
+// Function to remove plant data from localStorage
+function removePlantData(plantId) {
+    let savedPlantData = JSON.parse(localStorage.getItem('plantData')) || [];
+    const updatedPlantData = savedPlantData.filter(plant => plant.id !== plantId);
+    localStorage.setItem('plantData', JSON.stringify(updatedPlantData));
+}
+
+// Function to load plant data from localStorage
+function loadSavedPlantData() {
+    const savedPlantData = JSON.parse(localStorage.getItem('plantData'));
+    if (savedPlantData && savedPlantData.length > 0) {
+        savedPlantData.forEach(plant => {
+            displayPlantInfo(plant);
+        });
+    }
+}
+
+// Function to display plant information
+function displayPlantInfo(plant) {
+    const infoDiv = $('#plant-info-main');
+    const plantInfo = `
+        <div class="plant-info" data-plant-id="${plant.id}">
+            <h3>${plant.common_name || 'N/A'}</h3>
+            <p><strong>Scientific Name:</strong> ${plant.scientific_name ? plant.scientific_name.join(', ') : 'N/A'}</p>
+            <p><strong>Other Names:</strong> ${plant.other_name ? plant.other_name.join(', ') : 'N/A'}</p>
+            <p><strong>Cycle:</strong> ${plant.cycle || 'N/A'}</p>
+            <p><strong>Sunlight:</strong> ${plant.sunlight ? plant.sunlight.join(', ') : 'N/A'}</p>
+            <p><strong>Watering:</strong> ${plant.watering || 'N/A'}</p>
+            <img src="${plant.default_image ? plant.default_image.original_url : ''}" alt="${plant.common_name || 'N/A'}">
+            <button class="dismiss-button">Dismiss</button>
+        </div>
+    `;
+    infoDiv.append(plantInfo);
+}
