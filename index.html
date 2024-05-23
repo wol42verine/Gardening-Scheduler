@@ -25,30 +25,25 @@
 
             </div>
 
-            <!-- <div>
-        <h2>Weather Forecast</h2> -->
+            <div class="cell small-12 medium-6" id="right">
+                <h2>Weather Forecast</h2>
             <!-- the source: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date-->
 
             <!-- the source: https://www.w3schools.com/tags/tag_form.asp. The <form> tag is used to create an HTML form for user input.-->
-            <!-- <form> -->
-            <!-- the source: https://www.w3schools.com/tags/tag_label.asp. The <label> tag defines a label for several elements. For exmaple for <input type="date"> -->
-            <!-- <label>
-                  Choose the date:
-                  <input type="date" />
-                </label>
+                 
+                
                 <p>
-                  <button>Submit</button>
+                    <button class="button" data-open="weather-modal">Choose the date for the Forecast</button>
                 </p>
-            </form>
-            <div>
-                <h3>Result for the weather request:</h3>
+
+                <div>
+                    <h3>Do we want Results for the weather request here?:____</h3>
                 <div>
 
-                </div>
             </div>
+        </div>
 
-    </div> -->
-    </main>
+    </div> 
 
     <!-- Code for Garden Modal-->
     <p><a data-open="plant-modal"> data-open="settings-modal"Click Text</a></p>
@@ -61,6 +56,33 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
+
+    <!-- Code for Weather Modal -->
+
+    <div class="reveal" id="weather-modal" data-reveal>
+        <h1>Wethaer Day pick on</h1>
+        <p class="lead">Here you can choose the day for the Weather Forcast</p>
+        <p>
+            <!--the source: https://www.w3schools.com/html/html_form_input_types.asp-->
+            <form id="cityName">
+                <label for="cname">City name:</label><br>
+                <input type="text" id="cname" name="cname"><br>
+            </form>
+            <form> 
+                <!-- the source: https://www.w3schools.com/tags/tag_label.asp. The <label> tag defines a label for several elements. For exmaple for <input type="date"> -->
+                          <label>
+                             Choose the date:
+                             <input type="date" />
+                          </label>
+                          <p>
+                             <button id="submit">Submit</button>
+                          </p>
+            </form>
+        </p>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
 
     <footer class="garden-footer">
         <div class="footer-container">
