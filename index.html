@@ -63,6 +63,11 @@
         <h1>Wethaer Day pick on</h1>
         <p class="lead">Here you can choose the day for the Weather Forcast</p>
         <p>
+            <!--the source: https://www.w3schools.com/html/html_form_input_types.asp-->
+            <form id="cityName">
+                <label for="cname">City name:</label><br>
+                <input type="text" id="cname" name="cname"><br>
+            </form>
             <form> 
                 <!-- the source: https://www.w3schools.com/tags/tag_label.asp. The <label> tag defines a label for several elements. For exmaple for <input type="date"> -->
                           <label>
@@ -70,7 +75,7 @@
                              <input type="date" />
                           </label>
                           <p>
-                             <button>Submit</button>
+                             <button id="submit">Submit</button>
                           </p>
             </form>
         </p>
