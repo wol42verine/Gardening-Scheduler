@@ -1,3 +1,4 @@
+
 $(document).foundation();
 
 const apiUrl = 'https://perenual.com/api/species-list?key=sk-nV5Y664fa6394ed345548&page=1';
@@ -112,23 +113,36 @@ function displayPlantInfo(plant) {
 }
 const inputCity = document.querySelector('#cityName');
 const submitBtn = document.querySelector('#submit');
+
+
 const APIKey = "6d91ac03912ea4111a6d0d3486084c05";
-let date;
+const inputCity = document.querySelector('#cname');
+const submitBtn = document.querySelector('#cnsubmit');
+const wRes = document.querySelector('#weatherRes');
+
 let city;
-let state;
-let country;
 
 // get location for the Weather request
 
 submitBtn.addEventListener('click', function () {
+  //event.preventDefault();
     city = inputCity.value;
     console.log(city);
-    // date = 
 });
 
-// get API info
+// get info for API request URL
 
-const queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
+// get query string values from URL
+// sorce: https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+
+const urlParams = new URLSearchParams(window.location.search); 
+city = urlParams.get('cname');
+
+// If city has a value then do request to API
+
+if (city!==null) {
+
+let queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
 
 fetch(queryURL)
 .then(function (response) {
@@ -136,5 +150,18 @@ fetch(queryURL)
 })
 .then(function (data) {
   console.log(data);
-});
 
+  const resCity = document.createElement('p');
+  const resTemprtr = document.createElement('p');
+  const resWeather = document.createElement('p');
+
+    resCity.textContent = data.name;
+    resTemprtr.textContent = data.main.temp;
+    resWeather.textContent = data.weather[0].main;
+
+    wRes.appendChild(resCity);
+    wRes.appendChild(resTemprtr);
+    wRes.appendChild(resWeather);  
+
+});
+};

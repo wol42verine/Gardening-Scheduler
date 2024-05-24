@@ -31,14 +31,13 @@
             <!-- the source: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date-->
 
             <!-- the source: https://www.w3schools.com/tags/tag_form.asp. The <form> tag is used to create an HTML form for user input.-->
-                 
-                
+                                 
                 <p>
                     <button class="button" data-open="weather-modal">Choose the date for the Forecast</button>
                 </p>
 
-                <div>
-                    <h3>Do we want Results for the weather request here?:____</h3>
+                <div id="weatherRes">
+                    <h3>Results for the weather request:</h3>
                 <div>
 
             </div>
@@ -62,22 +61,13 @@
 
     <div class="reveal" id="weather-modal" data-reveal>
         <h1>Wethaer Day pick on</h1>
-        <p class="lead">Here you can choose the day for the Weather Forcast</p>
+        <p class="lead">Here you can choose the city for the Weather Forcast</p>
         <p>
             <!--the source: https://www.w3schools.com/html/html_form_input_types.asp-->
             <form id="cityName">
                 <label for="cname">City name:</label><br>
                 <input type="text" id="cname" name="cname"><br>
-            </form>
-            <form> 
-                <!-- the source: https://www.w3schools.com/tags/tag_label.asp. The <label> tag defines a label for several elements. For exmaple for <input type="date"> -->
-                          <label>
-                             Choose the date:
-                             <input type="date" />
-                          </label>
-                          <p>
-                             <button id="submit">Submit</button>
-                          </p>
+                <button id="cnsubmit">Submit City Name</button>
             </form>
         </p>
         <button class="close-button" data-close aria-label="Close modal" type="button">
@@ -106,7 +96,7 @@
     <script src ="Assets/javascript.js"></script>
 
     
-
+<script src="./Assets/javascript.js"></script>
 </body>
 
 </html>
