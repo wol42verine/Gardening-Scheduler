@@ -5,6 +5,7 @@
 }
 
 body {
+<<<<<<< HEAD
     
     color: white;
     position: relative;
@@ -118,3 +119,35 @@ label, input{
 
 
 
+=======
+    background-color:rgb(82, 37, 3);
+    color: #c5c9e2;
+}
+
+/* When using `max-width` as the breakpoint, you must go from widest to narrowest to avoid conflict */
+
+/* Tablets - header changes color */
+@media screen and (max-width: 992px) {
+    body {
+      background: #772014;
+      color: #c5c9e2;
+    }
+  }
+  
+  /* Large smartphones - navbar changes color */
+  @media screen and (max-width: 768px) {
+    body {
+      background-color: #bb8588;
+      color: #02061b;
+    }
+  }
+  
+  /* Small smartphones - image placeholders change color */
+  @media screen and (max-width: 576px) {
+    body {
+      background-color: #8ac4ff;
+      color: #3a2403;
+    }
+  }
+  
+>>>>>>> main
