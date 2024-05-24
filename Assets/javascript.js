@@ -42,7 +42,7 @@ function fetchPlantData() {
             populatePlantSelect(plants);
         })
         .catch(error => console.error('Error fetching plant data:', error));
-}
+};
 
 // Function to populate the plant select dropdown
 function populatePlantSelect(plants) {
@@ -52,7 +52,7 @@ function populatePlantSelect(plants) {
     plants.forEach(plant => {
         select.append(`<option value="${plant.id}">${plant.common_name}</option>`);
     });
-}
+};
 
 // Function to fetch and display plant details
 function fetchPlantDetails(plantId) {
@@ -68,21 +68,21 @@ function fetchPlantDetails(plantId) {
             }
         })
         .catch(error => console.error('Error fetching plant details:', error));
-}
+};
 
 // Function to save plant data in localStorage
 function savePlantData(plant) {
     let savedPlantData = JSON.parse(localStorage.getItem('plantData')) || [];
     savedPlantData.push(plant);
     localStorage.setItem('plantData', JSON.stringify(savedPlantData));
-}
+};
 
 // Function to remove plant data from localStorage
 function removePlantData(plantId) {
     let savedPlantData = JSON.parse(localStorage.getItem('plantData')) || [];
     const updatedPlantData = savedPlantData.filter(plant => plant.id !== plantId);
     localStorage.setItem('plantData', JSON.stringify(updatedPlantData));
-}
+};
 
 // Function to load plant data from localStorage
 function loadSavedPlantData() {
@@ -91,8 +91,8 @@ function loadSavedPlantData() {
         savedPlantData.forEach(plant => {
             displayPlantInfo(plant);
         });
-    }
-}
+    };
+};
 
 // Function to display plant information
 function displayPlantInfo(plant) {
@@ -110,10 +110,10 @@ function displayPlantInfo(plant) {
         </div>
     `;
     infoDiv.append(plantInfo);
-}
-const inputCity = document.querySelector('#cityName');
-const submitBtn = document.querySelector('#submit');
+};
 
+
+// Weather API
 
 const APIKey = "6d91ac03912ea4111a6d0d3486084c05";
 const inputCity = document.querySelector('#cname');
