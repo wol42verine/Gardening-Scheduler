@@ -8,7 +8,9 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css"
         crossorigin="anonymous">
+
     <link rel="stylesheet" type="text/css" href="./assets/style.css" />
+
     <!-- Fonts -->
 
     <!-- custom css -->
@@ -20,10 +22,8 @@
         <div class="grid-x grid-margin-x">
             <div class="cell small-12 medium-6" id="left">
                 <h2>Plant Details</h2>
-
-
                 <p><button class="button" data-open="plant-modal">Choose the Plant </button></p>
-
+                <div id="plant-info-main"></div>
             </div>
 
             <div class="cell small-12 medium-6" id="right">
@@ -47,12 +47,12 @@
     </div> 
 
     <!-- Code for Garden Modal-->
-    <p><a data-open="plant-modal"> data-open="settings-modal"Click Text</a></p>
+    <!-- <p><a data-open="plant-modal"> data-open="settings-modal"Click Text</a></p> -->
 
     <div class="reveal" id="plant-modal" data-reveal>
         <h2>Plant Details</h2>
-        <p class="lead">test text</p>
-        <p>Input plant details here.</p>
+        <select id="plant-select" class="full-width"></select>
+        <div id="plant-info" class="mt-2"></div>
         <button class="close-button" data-close aria-label="Close modal" type="button">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -100,10 +100,10 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js"
         crossorigin="anonymous"></script>
-    <script>
-    $(document).foundation();
-    console.log($(document).foundation);
-</script>
+
+    <!-- <script src="Assets\javascript.js"></script> -->
+
+    <script src ="Assets/javascript.js"></script>
 
     
 
