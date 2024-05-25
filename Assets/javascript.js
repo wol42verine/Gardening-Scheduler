@@ -1,4 +1,3 @@
-
 $(document).foundation();
 
 const apiUrl = 'https://perenual.com/api/species-list?key=sk-nV5Y664fa6394ed345548&page=1';
@@ -112,7 +111,6 @@ function displayPlantInfo(plant) {
     infoDiv.append(plantInfo);
 };
 
-
 // Weather API
 
 const APIKey = "6d91ac03912ea4111a6d0d3486084c05";
@@ -133,7 +131,7 @@ submitBtn.addEventListener('click', function () {
 // get info for API request URL
 
 // get query string values from URL
-// sorce: https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+// source: https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
 
 const urlParams = new URLSearchParams(window.location.search); 
 city = urlParams.get('cname');
@@ -152,15 +150,19 @@ fetch(queryURL)
   console.log(data);
 
   const resCity = document.createElement('p');
-  const resTemprtr = document.createElement('p');
+  const resTemp = document.createElement('p');
   const resWeather = document.createElement('p');
 
-    resCity.textContent = data.name;
-    resTemprtr.textContent = data.main.temp;
-    resWeather.textContent = data.weather[0].main;
+  const kelvinTemp = data.main.temp;
+  const celsiusTemp = kelvinTemp - 273.15;
+  const fahrenheitTemp = (kelvinTemp - 273.15) * 9/5 + 32;
+
+    resCity.textContent = `${data.name}, ${data.sys.country}`;
+    resTemp.textContent = `Temperature: ${celsiusTemp.toFixed(2)} °C / ${fahrenheitTemp.toFixed(2)} °F`;
+    resWeather.textContent = `Weather: ${data.weather[0].main}`;
 
     wRes.appendChild(resCity);
-    wRes.appendChild(resTemprtr);
+    wRes.appendChild(resTemp);
     wRes.appendChild(resWeather);  
 
 });
