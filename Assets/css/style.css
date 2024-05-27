@@ -24,10 +24,8 @@
 }
 
 body {
-    line-height: 1;
-   background-image: url('../Images/plant.jpg');
-    color: var(--font-color);
-    font-family: var(--font-family);
+ color: white;
+  position: relative;
 }
 
     ol, ul {
@@ -40,6 +38,16 @@ button {
 
 input, button, textarea, select {
     font: inherit;
+}
+
+#wrapper {
+    height: 100vh;
+    width: 100%;
+    background-image: url(../Images/plant.jpg);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    position: relative;
 }
 
 
@@ -69,26 +77,26 @@ input, button, textarea, select {
 
 
 /* Tablets - header changes color */
-@media screen and (max-width: 992px) {
+/* @media screen and (max-width: 992px) {
     body {
       background: #772014;
       color: #c5c9e2;
     }
-  }
+  } */
   
   /* Large smartphones - navbar changes color */
-  @media screen and (max-width: 768px) {
+  /* @media screen and (max-width: 768px) {
     body {
       background-color: #bb8588;
       color: #02061b;
     }
-  }
+  } */
   
   /* Small smartphones - image placeholders change color */
-  @media screen and (max-width: 576px) {
+  /* @media screen and (max-width: 576px) {
     body {
       background-color: #8ac4ff;
       color: #3a2403;
     }
-  }
+  } */
   
