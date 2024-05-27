@@ -40,11 +40,11 @@
     </nav>
   </header>
 
+
   <main>
+
     <!-- PLANT -->
-
     <section class="grid-container">
-
       <!-- plant modal header -->
 
       <div>
@@ -56,13 +56,14 @@
           <p><button class="button" data-open="plant-modal">Choose the Plant </button></p>
 
           <form class="reveal" id="plant-modal" data-reveal>
-            <h2>Plant Details</h2>
             <select id="plant-select" class="full-width"></select>
             <div id="plant-info" class="mt-2"></div>
+
             <button class="close-button" data-close aria-label="Close modal" type="button">
               <span aria-hidden="true">&times;</span>
             </button>
           </form>
+
           <div id="plant-info-main"></div>
         </div>
 
@@ -73,24 +74,25 @@
     <!-- weather Modal -->
 
 
-    <section>
+    <section class="grid-container">
+
       <!-- Header Weather  -->
 
-      <div class="grid-container">
+      <div>
+        
+          <div class="cell small-12 medium-6" id="right">
+             <h2>Weather Forecast</h2>
+           </div>
 
-        <div class="cell small-12 medium-6" id="right">
-          <h2>Weather Forecast</h2>
-        </div>
 
-
-        <div>
+     <div>
           <p>
-            <button class="button" data-open="weather-modal">Choose the date for the Forecast</button>
+              <button class="button" data-open="weather-modal">Choose the date for the Forecast</button>
           </p>
 
           <!-- Code for Garden Modal-->
+
           <form class="reveal" id="plant-modal" data-reveal>
-            <h2>Plant Details</h2>
             <select id="plant-select" class="full-width"></select>
             <div id="plant-info" class="mt-2"></div>
             <button class="close-button" data-close aria-label="Close modal" type="button">
