@@ -4,8 +4,8 @@
 
 :root {
     --font-family: 'Lora', serif;
-    --font-color: #6B8E23;
-    --background-color: #F5F5DC;
+    --font-color: #F5F5DC;
+    --background-color: #6B8E23;
 }
 
 
@@ -40,6 +40,38 @@ input, button, textarea, select {
     font: inherit;
 }
 
+
+header{
+  height: 80px;
+  width: 100%;
+  background-color: var(--background-color);
+}
+
+nav h2{
+  padding-left: 80px;
+  font-family: var(--font-family);
+}
+
+
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20%;
+  
+}
+
+
+footer{
+  position: absolute;
+  bottom: 0;
+  left:0;
+  height: 100px;
+  width: 100%;
+  background-color: var(--background-color);
+}
+
+
 #wrapper {
     height: 100vh;
     width: 100%;
@@ -51,6 +83,12 @@ input, button, textarea, select {
 }
 
 
+.grid-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
 
 
 

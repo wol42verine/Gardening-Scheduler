@@ -30,6 +30,7 @@
 
 
 
+
 <body id="wrapper">
 
 
@@ -39,18 +40,13 @@
     </nav>
   </header>
 
-
-
-
-
   <main>
-
-
-
     <!-- PLANT -->
 
     <section class="grid-container">
+
       <!-- plant modal header -->
+
       <div>
         <div class="cell small-12 medium-6" id="left">
           <h2>Plant Details</h2>
@@ -67,111 +63,82 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </form>
-          <!-- <div id="plant-info-main"></div> -->
+          <div id="plant-info-main"></div>
         </div>
 
-        </section>
+    </section>
 
 
 
-        <!-- weather Modal -->
+    <!-- weather Modal -->
 
 
-<section class="grid-container">
+    <section>
+      <!-- Header Weather  -->
 
-          <!-- Header Weather  -->         
-<div>
-<div class="cell small-12 medium-6" id="right"><h2>Weather Forecast</h2></div>
+      <div class="grid-container">
 
-
-<div>
-  <p>
-    <button class="button" data-open="weather-modal">Choose the date for the Forecast</button>
-  </p>
-
-  <!-- Code for Garden Modal-->
-  <form class="reveal" id="plant-modal" data-reveal>
-    <h2>Plant Details</h2>
-    <select id="plant-select" class="full-width"></select>
-    <div id="plant-info" class="mt-2"></div>
-    <button class="close-button" data-close aria-label="Close modal" type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </form>
-</div>
-
-  </section>
+        <div class="cell small-12 medium-6" id="right">
+          <h2>Weather Forecast</h2>
+        </div>
 
 
+        <div>
+          <p>
+            <button class="button" data-open="weather-modal">Choose the date for the Forecast</button>
+          </p>
 
+          <!-- Code for Garden Modal-->
+          <form class="reveal" id="plant-modal" data-reveal>
+            <h2>Plant Details</h2>
+            <select id="plant-select" class="full-width"></select>
+            <div id="plant-info" class="mt-2"></div>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </form>
+        </div>
 
+    </section>
 
-
-
-
-
-
-
-
-
-     
-
-
-  
 
 
 
     <section class="grid-container">
 
+      <div class="reveal" id="weather-modal" data-reveal>
+        <h1>Wethaer Day pick on</h1>
+        <p class="lead">Here you can choose the day for the Weather Forcast</p>
+
+        <p>
+          <!--the source: https://www.w3schools.com/html/html_form_input_types.asp-->
+
+        <form id="cityName">
+          <label for="cname">City name:</label><br>
+          <input type="text" id="cname" name="cname"><br>
+        </form>
+
+        <form>
+          <!-- the source: https://www.w3schools.com/tags/tag_label.asp. The <label> tag defines a label for several elements. For exmaple for <input type="date"> -->
+          <label>
+            Choose the date:
+            <input type="date" />
+          </label>
+          <p>
+            <button id="submit">Submit</button>
+          </p>
+        </form>
+
+        </p>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
     </section>
 
   </main 
-  <div class="cell small-12 medium-6" id="right">
-  <h2>Weather Forecast</h2></div>
-
-  <p>
-    <button class="button" data-open="weather-modal">Choose the date for the Forecast</button>
-  </p>
-
-  <!-- Code for Garden Modal-->
-
-  <div class="reveal" id="plant-modal" data-reveal>
-    <h2>Plant Details</h2>
-    <select id="plant-select" class="full-width"></select>
-    <div id="plant-info" class="mt-2"></div>
-    <button class="close-button" data-close aria-label="Close modal" type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-
-  </div>
-
-  <!-- Code for Weather Modal -->
-
-  <div class="reveal" id="weather-modal" data-reveal>
-    <h1>Wethaer Day pick on</h1>
-    <p class="lead">Here you can choose the day for the Weather Forcast</p>
-    <p>
-      <!--the source: https://www.w3schools.com/html/html_form_input_types.asp-->
-    <form id="cityName">
-      <label for="cname">City name:</label><br>
-      <input type="text" id="cname" name="cname"><br>
-    </form>
-    <form>
-      <!-- the source: https://www.w3schools.com/tags/tag_label.asp. The <label> tag defines a label for several elements. For exmaple for <input type="date"> -->
-      <label>
-        Choose the date:
-        <input type="date" />
-      </label>
-      <p>
-        <button id="submit">Submit</button>
-      </p>
-    </form>
-    </p>
-    <button class="close-button" data-close aria-label="Close modal" type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
+ 
 
   <footer class="garden-footer">
     <div class="footer-container">
