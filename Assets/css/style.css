@@ -43,19 +43,29 @@ input, button, textarea, select {
 
 header{
   height: 80px;
+  opacity: 0.6;
   width: 100%;
   background-color: var(--background-color);
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav{
+  display: flex;
+  justify-content: start;
+  align-items: center; 
 }
 
 nav h2{
   padding-left: 80px;
   font-family: var(--font-family);
+  padding-top: 10px;
+
 }
 
 
 main{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   margin-top: 20%;
   
@@ -64,9 +74,10 @@ main{
 
 footer{
   position: absolute;
+  opacity: 0.6;
   bottom: 0;
   left:0;
-  height: 100px;
+  height: 80px;
   width: 100%;
   background-color: var(--background-color);
 }
@@ -81,6 +92,35 @@ footer{
     background-repeat: no-repeat;
     position: relative;
 }
+
+.plant-section, .weather-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-p{
+  font-size: 1.5rem;
+  border-radius: 5px;
+  font-family: var(--font-family);
+}
+
+
+.form-header{
+  color: black;
+  
+}
+
+
+
+.checkPlantInfo{
+  font-size: 1.2rem;
+}
+
+
+
+
+
 
 
 .grid-container{
@@ -100,6 +140,53 @@ footer{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 760px) {
+  main{
+    flex-direction: column;
+    gap: 100px;
+  }
+}
+
+
+
+
+
+
+/* Media query for screens wider than 639px */
+@media (max-width: 640px) {
+    header {
+        padding: 20px 0; 
+        text-align: center; /* Change to center alignment */
+    }
+    
+    nav {
+        display: flex; /* Add flexbox display */
+        flex-direction: column; /* Change to column layout */
+        align-items: center; /* Center items horizontally */
+    }
+    
+    nav h2 {
+        font-size: 2rem; 
+        padding: 10px; /* Add padding for better spacing */
+    }
+}
 
 
 

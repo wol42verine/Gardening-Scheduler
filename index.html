@@ -6,15 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Great Gardening App!</title>
 
-  <!-- foundation css -->
+
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css"
     crossorigin="anonymous">
 
-  <!-- jquery ui css link -->
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
 
-  <!-- Fonts used: Lora-->
+   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css"
+
+
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,17 +22,14 @@
     href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
 
-  <!-- custom css -->
+
 
   <link rel="stylesheet" href="./Assets/css/style.css">
 
 </head>
 
 
-
-
 <body id="wrapper">
-
 
   <header>
     <nav>
@@ -41,117 +38,108 @@
   </header>
 
 
-  <main>
+<main id="main-container">
 
-    <!-- PLANT -->
-    <section class="grid-container">
-      <!-- plant modal header -->
+<section>
+        <div class="cell small-12 medium-6 plant-section" id="left">
+            <h2>Plant Details</h2>
 
-      <div>
-        <div class="cell small-12 medium-6" id="left">
-          <h2>Plant Details</h2>
+            <p>
+                <button class="button success button-p" id="button-plant" data-open="plant-modal">Choose the Plant</button>
+            </p>
+
+            <div class="reveal modal-plant" id="plant-modal" data-reveal>
+                <h3 class="form-header">Plant</h3>
+                <select id="plant-select" class="full-width"></select>
+                <div id="plant-info" class="mt-2"></div>
+                <button class="close-button" data-close aria-label="Close modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <button class="submit success button checkPlantInfo">Plant Info</button>
+            </div>
+
+            
+             <div class="header plant-info-main">Plant Information</div>
+                
         </div>
-
-        <div>
-          <p><button class="button" data-open="plant-modal">Choose the Plant </button></p>
-
-          <form class="reveal" id="plant-modal" data-reveal>
-            <select id="plant-select" class="full-width"></select>
-            <div id="plant-info" class="mt-2"></div>
-
-            <button class="close-button" data-close aria-label="Close modal" type="button">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </form>
-
-          <div id="plant-info-main"></div>
-        </div>
-
     </section>
 
 
 
-    <!-- weather Modal -->
+<section>
 
+  <div class="cell small-12 medium-6 weather-section" id="right">
+    <h2>Weather Forecast</h2>
 
-    <section class="grid-container">
+    <!-- Button to open the weather modal -->
+    <p>
+        <button class="button success button-p" data-open="weather-modal">Choose the City</button>
+    </p>
 
-      <!-- Header Weather  -->
-
-      <div>
-        
-          <div class="cell small-12 medium-6" id="right">
-             <h2>Weather Forecast</h2>
-           </div>
-
-
-     <div>
-          <p>
-              <button class="button" data-open="weather-modal">Choose the date for the Forecast</button>
-          </p>
-
-          <!-- Code for Garden Modal-->
-
-          <form class="reveal" id="plant-modal" data-reveal>
-            <select id="plant-select" class="full-width"></select>
-            <div id="plant-info" class="mt-2"></div>
-            <button class="close-button" data-close aria-label="Close modal" type="button">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </form>
-        </div>
-
-    </section>
-
-
-
-
-    <section class="grid-container">
-
-      <div class="reveal" id="weather-modal" data-reveal>
-        <h1>Wethaer Day pick on</h1>
-        <p class="lead">Here you can choose the day for the Weather Forcast</p>
-
+    <!-- Weather modal structure -->
+    <div class="reveal" id="weather-modal" data-reveal>
+        <h3 class="form-header">Weather Today</h3>
+        <p class="lead">Choose your city</p>
         <p>
-          <!--the source: https://www.w3schools.com/html/html_form_input_types.asp-->
-
-        <form id="cityName">
-          <label for="cname">City name:</label><br>
-          <input type="text" id="cname" name="cname"><br>
-        </form>
-
-        <form>
-          <!-- the source: https://www.w3schools.com/tags/tag_label.asp. The <label> tag defines a label for several elements. For exmaple for <input type="date"> -->
-          <label>
-            Choose the date:
-            <input type="date" />
-          </label>
-          <p>
-            <button id="submit">Submit</button>
-          </p>
-        </form>
-
+            <!-- City name form -->
+            <form id="cityName">
+                <label for="cname">City name:</label><br>
+                <input type="text" id="cname" name="cname"><br>
+                <button id="cnsubmit" type="button">Submit City Name</button>
+            </form>
         </p>
+        <!-- Close button for the modal -->
         <button class="close-button" data-close aria-label="Close modal" type="button">
-          <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true">&times;</span>
         </button>
-      </div>
+    </div>
+</div>
+</div>
 
-    </section>
+</section>
 
-  </main 
+
+
+
+
+
+</main>
+
+
  
 
-  <footer class="garden-footer">
-    <div class="footer-container">
-      <!-- needs our names and group names -->
-      <!-- <div class="quick-guide"></div>
-        <div class="quote"></div>
-        <div class="social-medias"></div> -->
-      <p>M5: Joe Sandoval, Maryna Martseniuk, Kai Burgess, Olivier Ndicunguye, Shobha Ganesh</p>
-      <p>The Great Gardening App</p>
-    </div>
-  </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <!-- js -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -169,7 +157,11 @@
 
   <script src="Assets/js/javascript.js"></script>
 
-
+  <script>
+    $( function() {
+    $( "#dialog" ).dialog();
+  } );
+  </script>
 
 </body>
 
