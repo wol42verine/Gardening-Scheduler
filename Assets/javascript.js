@@ -71,27 +71,62 @@ function fetchPlantDetails(plantId) {
 
 // Function to save plant data in localStorage
 function savePlantData(plant) {
-    let savedPlantData = JSON.parse(localStorage.getItem('plantData')) || [];
+    let savedPlantData = localStorage.getItem('plantData');
+
+    // Ensure savedPlantData is a valid array
+    try {
+        savedPlantData = JSON.parse(savedPlantData);
+        if (!Array.isArray(savedPlantData)) {
+            savedPlantData = [];
+        }
+    } catch (e) {
+        savedPlantData = [];
+    }
+
+    // Add the new plant data
     savedPlantData.push(plant);
+
+    // Save back to localStorage
     localStorage.setItem('plantData', JSON.stringify(savedPlantData));
-};
+}
 
 // Function to remove plant data from localStorage
 function removePlantData(plantId) {
-    let savedPlantData = JSON.parse(localStorage.getItem('plantData')) || [];
+    let savedPlantData = localStorage.getItem('plantData');
+
+    // Ensure savedPlantData is a valid array
+    try {
+        savedPlantData = JSON.parse(savedPlantData);
+        if (!Array.isArray(savedPlantData)) {
+            savedPlantData = [];
+        }
+    } catch (e) {
+        savedPlantData = [];
+    }
+
+    // Filter out the plant to remove
     const updatedPlantData = savedPlantData.filter(plant => plant.id !== plantId);
+
+    // Save back to localStorage
     localStorage.setItem('plantData', JSON.stringify(updatedPlantData));
-};
+}
 
 // Function to load plant data from localStorage
 function loadSavedPlantData() {
-    const savedPlantData = JSON.parse(localStorage.getItem('plantData'));
-    if (savedPlantData && savedPlantData.length > 0) {
-        savedPlantData.forEach(plant => {
-            displayPlantInfo(plant);
-        });
-    };
-};
+    let savedPlantData = localStorage.getItem('plantData');
+
+    // Ensure savedPlantData is a valid array
+    try {
+        savedPlantData = JSON.parse(savedPlantData);
+        if (Array.isArray(savedPlantData)) {
+            savedPlantData.forEach(plant => {
+                displayPlantInfo(plant);
+            });
+        }
+    } catch (e) {
+        console.error('Error loading saved plant data:', e);
+    }
+}
 
 // Function to display plant information
 function displayPlantInfo(plant) {
@@ -109,7 +144,7 @@ function displayPlantInfo(plant) {
         </div>
     `;
     infoDiv.append(plantInfo);
-};
+}
 
 // Weather API
 
@@ -123,47 +158,41 @@ let city;
 // get location for the Weather request
 
 submitBtn.addEventListener('click', function () {
-  //event.preventDefault();
     city = inputCity.value;
     console.log(city);
 });
 
 // get info for API request URL
 
-// get query string values from URL
-// source: https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
-
 const urlParams = new URLSearchParams(window.location.search); 
 city = urlParams.get('cname');
 
 // If city has a value then do request to API
 
-if (city!==null) {
+if (city !== null) {
+    let queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
 
-let queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
+    fetch(queryURL)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
 
-fetch(queryURL)
-.then(function (response) {
-  return response.json();
-})
-.then(function (data) {
-  console.log(data);
+        const resCity = document.createElement('p');
+        const resTemp = document.createElement('p');
+        const resWeather = document.createElement('p');
 
-  const resCity = document.createElement('p');
-  const resTemp = document.createElement('p');
-  const resWeather = document.createElement('p');
+        const kelvinTemp = data.main.temp;
+        const celsiusTemp = kelvinTemp - 273.15;
+        const fahrenheitTemp = (kelvinTemp - 273.15) * 9/5 + 32;
 
-  const kelvinTemp = data.main.temp;
-  const celsiusTemp = kelvinTemp - 273.15;
-  const fahrenheitTemp = (kelvinTemp - 273.15) * 9/5 + 32;
+        resCity.textContent = `${data.name}, ${data.sys.country}`;
+        resTemp.textContent = `Temperature: ${celsiusTemp.toFixed(2)} °C / ${fahrenheitTemp.toFixed(2)} °F`;
+        resWeather.textContent = `Weather: ${data.weather[0].main}`;
 
-    resCity.textContent = `${data.name}, ${data.sys.country}`;
-    resTemp.textContent = `Temperature: ${celsiusTemp.toFixed(2)} °C / ${fahrenheitTemp.toFixed(2)} °F`;
-    resWeather.textContent = `Weather: ${data.weather[0].main}`;
-
-    wRes.appendChild(resCity);
-    wRes.appendChild(resTemp);
-    wRes.appendChild(resWeather);  
-
-});
-};
+        wRes.appendChild(resCity);
+        wRes.appendChild(resTemp);
+        wRes.appendChild(resWeather);  
+    });
+}
