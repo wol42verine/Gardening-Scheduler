@@ -50,7 +50,7 @@ W3 Schools -      HTML Inputs: https://www.w3schools.com/html/html_form_input_ty
                   HTML Tags:   https://www.w3schools.com/tags/tag_label.asp
 
                   
-Collaborators: 
+Collaborators: Shobha Ganesh, Joey Sandoval, Maryna Martseniuk, Kai Burgess, Olivier Ndicunguye
 
 Optional Stuff:
                                 
