@@ -1,26 +1,35 @@
 $(document).foundation();
+const fetchbtn = document.getElementById("plant-modal");
+const plantSelect = document.getElementById('plant-select');
+
+
 
 const apiUrl = 'https://perenual.com/api/species-list?key=sk-nV5Y664fa6394ed345548&page=1';
 
-$(document).ready(function() {
-    // Event listener for modal button
-    $('button[data-open="plant-modal"]').on('click', function() {
-        fetchPlantData();
-    });
+document.addEventListener('DOMContentLoaded', function() {
 
+    // Event listener for modal button
+    fetchbtn.addEventListener('click', fetchPlantData);
+       
     // Event listener for plant selection
-    $('#plant-select').on('change', function() {
-        const plantId = $(this).val();
+    plantSelect.addEventListener('change', plantSelection);
+
+// Function to select plant
+    function plantSelection() {
+        const plantId = this.value;
         if (plantId) {
             fetchPlantDetails(plantId);
         }
-    });
+    };
 
     // Event listener for dismiss button using event delegation
-    $(document).on('click', '.dismiss-button', function() {
-        const plantId = $(this).closest('.plant-info').data('plant-id');
-        removePlantData(plantId);
-        $(this).closest('.plant-info').remove(); // Remove the closest parent with class 'plant-info'
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('dismiss-button')) {
+            const plantInfoDiv = event.target.closest('.plant-info');
+            const plantId = plantInfoDiv.getAttribute('data-plant-id');
+            removePlantData(plantId);
+            plantInfoDiv.remove();
+        }
     });
 
     // Load plant data from localStorage when the page is loaded
@@ -41,17 +50,17 @@ function fetchPlantData() {
             populatePlantSelect(plants);
         })
         .catch(error => console.error('Error fetching plant data:', error));
-};
+}
 
 // Function to populate the plant select dropdown
 function populatePlantSelect(plants) {
-    const select = $('#plant-select');
-    select.empty(); // Clear existing options
-    select.append('<option value="">Select a plant</option>');
+    
+    plantSelect.innerHTML = ''; 
+    plantSelect.insertAdjacentHTML('beforeend', '<option value="">Select a plant</option>');
     plants.forEach(plant => {
-        select.append(`<option value="${plant.id}">${plant.common_name}</option>`);
+        plantSelect.insertAdjacentHTML('beforeend', `<option value="${plant.id}">${plant.common_name}</option>`);
     });
-};
+}
 
 // Function to fetch and display plant details
 function fetchPlantDetails(plantId) {
@@ -67,7 +76,7 @@ function fetchPlantDetails(plantId) {
             }
         })
         .catch(error => console.error('Error fetching plant details:', error));
-};
+}
 
 // Function to save plant data in localStorage
 function savePlantData(plant) {
@@ -130,7 +139,7 @@ function loadSavedPlantData() {
 
 // Function to display plant information
 function displayPlantInfo(plant) {
-    const infoDiv = $('#plant-info-main');
+    const infoDiv = document.getElementById('plant-info-main');
     const plantInfo = `
         <div class="plant-info" data-plant-id="${plant.id}">
             <h3>${plant.common_name || 'N/A'}</h3>
@@ -143,8 +152,9 @@ function displayPlantInfo(plant) {
             <button class="dismiss-button">Dismiss</button>
         </div>
     `;
-    infoDiv.append(plantInfo);
+    infoDiv.insertAdjacentHTML('beforeend', plantInfo);
 }
+
 
 // Weather API
 
