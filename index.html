@@ -12,11 +12,8 @@
     crossorigin="anonymous">
 
 
-   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css"
-
-
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css" <link rel="preconnect"
+    href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -38,75 +35,61 @@
   </header>
 
 
-<main id="main-container">
+  <main>
 
-<section>
+    <section class="user-input" id="main-container">
+      <div>
         <div class="cell small-12 medium-6 plant-section" id="left">
-            <h2>Plant Details</h2>
+          <h2>Plant Details</h2>
 
-            <p>
-                <button class="button success button-p" id="button-plant" data-open="plant-modal">Choose the Plant</button>
-            </p>
-
-            <div class="reveal modal-plant" id="plant-modal" data-reveal>
-                <h3 class="form-header">Plant</h3>
-                <select id="plant-select" class="full-width"></select>
-                <div id="plant-info" class="mt-2"></div>
-                <button class="close-button" data-close aria-label="Close modal" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <button class="submit success button checkPlantInfo">Plant Info</button>
-            </div>
-
-            
-             <div class="header plant-info-main">Plant Information</div>
-                
+          <select id="plant-select" class="full-width"></select>
+          <button class="button success display-info">plant inventory app</button>
         </div>
+      </div>
+
+
+
+  
+      <div>
+
+        <div class="cell small-12 medium-6 weather-section" id="right">
+          <h2>Weather Forecast</h2>
+
+          <!-- Button to open the weather modal -->
+          <p>
+            <button class="button success button-p" data-open="weather-modal">Choose the City</button>
+          </p>
+
+          <!-- Weather modal structure -->
+          <div class="reveal" id="weather-modal" data-reveal>
+            <h3 class="form-header">Weather Today</h3>
+            <p class="lead">Choose your city</p>
+            <p>
+              <!-- City name form -->
+            <form id="cityName">
+              <label for="cname">City name:</label><br>
+              <input type="text" id="cname" name="cname"><br>
+              <button id="cnsubmit" type="button">Submit City Name</button>
+            </form>
+            </p>
+            <!-- Close button for the modal -->
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      </div>
+
     </section>
 
+    <section id="user-output">
+      <div class="user-output-plant"></div>
+      <div class="user-output-weather"></div>
+    </section>
 
-
-<section>
-
-  <div class="cell small-12 medium-6 weather-section" id="right">
-    <h2>Weather Forecast</h2>
-
-    <!-- Button to open the weather modal -->
-    <p>
-        <button class="button success button-p" data-open="weather-modal">Choose the City</button>
-    </p>
-
-    <!-- Weather modal structure -->
-    <div class="reveal" id="weather-modal" data-reveal>
-        <h3 class="form-header">Weather Today</h3>
-        <p class="lead">Choose your city</p>
-        <p>
-            <!-- City name form -->
-            <form id="cityName">
-                <label for="cname">City name:</label><br>
-                <input type="text" id="cname" name="cname"><br>
-                <button id="cnsubmit" type="button">Submit City Name</button>
-            </form>
-        </p>
-        <!-- Close button for the modal -->
-        <button class="close-button" data-close aria-label="Close modal" type="button">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-</div>
-</div>
-
-</section>
-
-
-
-
-
-
-</main>
-
-
- 
+  </main>
 
 
 
@@ -121,9 +104,12 @@
 
 
 
-<footer>
 
-</footer>
+
+
+  <footer>
+
+  </footer>
 
 
 
@@ -158,9 +144,9 @@
   <script src="Assets/js/javascript.js"></script>
 
   <script>
-    $( function() {
-    $( "#dialog" ).dialog();
-  } );
+    $(function () {
+      $("#dialog").dialog();
+    });
   </script>
 
 </body>
