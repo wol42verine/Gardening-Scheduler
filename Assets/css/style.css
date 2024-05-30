@@ -68,6 +68,7 @@ nav h2{
   justify-content: space-around;
   align-items: center;
   margin-top: 20%;
+  background: transparent;
   
 }
 
@@ -145,10 +146,19 @@ footer{
 
 #user-output{
   display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding:20px;
 }
 
+.user-output-plant, .user-output-weather {
+  flex: 1;
+  margin-right: 20px; 
+}
 
-
+.user-output-weather {
+  margin-right: 0; 
+}
 
 
 
