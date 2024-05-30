@@ -38,40 +38,36 @@
   <main>
 
     <section class="user-input" id="main-container">
-      <div>
+      <div class="sub-container">
         <div class="cell small-12 medium-6 plant-section" id="left">
           <h2>Plant Details</h2>
 
-          <select id="plant-select" class="full-width"></select>
-          <button class="button success display-info">plant inventory app</button>
+          <select id="plant-select" class="full-width">
+            <option value="" disabled selected>Select your plant</option>>
+          </select>
+          <button class="button success display-info">Plant details</button>
         </div>
       </div>
 
 
 
   
-      <div>
 
+      <div>
         <div class="cell small-12 medium-6 weather-section" id="right">
           <h2>Weather Forecast</h2>
 
           <!-- Button to open the weather modal -->
           <p>
-            <button class="button success button-p" data-open="weather-modal">Choose the City</button>
+            <button class="button success button-p" data-open="weather-modal">WEATHER</button>
           </p>
 
           <!-- Weather modal structure -->
           <div class="reveal" id="weather-modal" data-reveal>
-            <h3 class="form-header">Weather Today</h3>
-            <p class="lead">Choose your city</p>
-            <p>
-              <!-- City name form -->
-            <form id="cityName">
-              <label for="cname">City name:</label><br>
-              <input type="text" id="cname" name="cname"><br>
-              <button id="cnsubmit" type="button">Submit City Name</button>
-            </form>
-            </p>
+            <select id="weather-select">
+              <option value="" disabled selected>Select your City</option>
+            </select>
+            <button type="submit succes button">Submit</button>     
             <!-- Close button for the modal -->
             <button class="close-button" data-close aria-label="Close modal" type="button">
               <span aria-hidden="true">&times;</span>

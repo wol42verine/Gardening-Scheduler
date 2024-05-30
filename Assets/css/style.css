@@ -132,10 +132,20 @@ footer{
 
 
 
+.PlantLoading{
+  color: red;
+}
 
+.pwarning{
+  color: red;
+  font-style: italic;
+  text-align: center;
+  font-size: 1.2rem;
+}
 
-
-
+#user-output{
+  display: flex;
+}
 
 
 
