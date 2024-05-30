@@ -4,7 +4,7 @@
 
 :root {
     --font-family: 'Lora', serif;
-    --font-color: #F5F5DC;
+    --font-color: #ffffff;
     --background-color: #6B8E23;
 }
 
@@ -23,10 +23,6 @@
     vertical-align: baseline;
 }
 
-body {
- color: white;
-  position: relative;
-}
 
     ol, ul {
     list-style: none;
@@ -40,26 +36,76 @@ input, button, textarea, select {
     font: inherit;
 }
 
-
-header{
-  height: 80px;
-  opacity: 0.6;
-  width: 100%;
-  background-color: var(--background-color);
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    max-height: 100%;
+    background-image: url(../Images/plant.jpg);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    position: relative;  
 }
 
-nav{
-  display: flex;
-  justify-content: start;
+header {
+  background-color: #6B8E23; 
+  color: white; 
+  padding: 20px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+nav {
+  display: flex; 
+  justify-content: space-between; 
   align-items: center; 
 }
 
 nav h2{
-  padding-left: 80px;
+  font-size: 24px; 
+  font-weight: bold; 
   font-family: var(--font-family);
-  padding-top: 10px;
+}
 
+
+main{
+  height: auto;
+   padding-bottom: 100px;
+}
+
+footer{
+   position: fixed; 
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #6B8E23; 
+    color: #fff; 
+    display: flex;
+    justify-content: space-around; 
+    align-items: center; 
+    padding: 10px 0; 
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2); 
+}
+
+
+footer a {
+    color: #fff; 
+    text-decoration: none; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+footer i {
+    font-size: 1.5rem; 
+    margin-bottom: 5px; 
+    color: black;
+}
+
+footer p {
+    margin: 0; 
+    font-size: 1.2rem; 
 }
 
 
@@ -67,32 +113,13 @@ nav h2{
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 20%;
+  margin-top: 150px;
   background: transparent;
+  
   
 }
 
 
-footer{
-  position: absolute;
-  opacity: 0.6;
-  bottom: 0;
-  left:0;
-  height: 80px;
-  width: 100%;
-  background-color: var(--background-color);
-}
-
-
-#wrapper {
-    height: 100vh;
-    width: 100%;
-    background-image: url(../Images/plant.jpg);
-    background-size: cover;
-    background-position: center; 
-    background-repeat: no-repeat;
-    position: relative;
-}
 
 .plant-section, .weather-section{
   display: flex;
@@ -100,11 +127,84 @@ footer{
   align-items: center;
 }
 
-.button-p{
-  font-size: 1.5rem;
-  border-radius: 5px;
-  font-family: var(--font-family);
+.plant-section h2, .weather-section h2{
+  color: #ffffff; 
+  font-size: 2rem; 
+  font-weight: bold; 
+  text-transform: uppercase; 
+  letter-spacing: 2px; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 }
+
+
+.plant-section select.full-width {
+  
+  border: 2px solid #6B8E23; 
+  border-radius: 5px; 
+  padding: 8px; 
+  font-size: 16px;
+  background-color: white; 
+  color: black; 
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+}
+
+.plant-section button.display-info, .button-p {
+  
+  background-color: #6B8E23; 
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 10px 20px; 
+  font-size: 20px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
+}
+
+.plant-section button.display-info:hover {
+  
+  background-color: #446617; 
+}
+
+.button-p:hover{
+  background-color: #446617; 
+}
+
+
+
+.reveal {
+  background-color: #ffffff; 
+  color: #000000; 
+  padding: 20px; 
+  border-radius: 10px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}
+
+
+#weather-select{
+  margin: 10px;
+  width: 90%;
+}
+
+.weather-btn {
+  background-color: #6B8E23; 
+  color: #ffffff; 
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  margin: 10px;
+}
+
+.weather-btn:hover {
+  background-color: #578b26;
+}
+
+
+
+
+
+
+
 
 
 .form-header{
@@ -145,20 +245,35 @@ footer{
 }
 
 #user-output{
-  display: flex;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding:20px;
+  display: none;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .user-output-plant, .user-output-weather {
-  flex: 1;
-  margin-right: 20px; 
+ padding: 1vh;
+    border-radius: 6px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+    max-width: 90vw;
+    min-width: 30vw;
+    background: white;
 }
 
-.user-output-weather {
-  margin-right: 0; 
+.image-output {
+  min-width: 100px;
+  max-width: 200px;
 }
+
+.user-output-plant p,
+.user-output-weather p {
+    margin: 0.5rem 0;  
+    padding: 0.5rem; 
+    background-color: #f0f0f0;  
+    border-radius: 6px;  
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
 
 
 
@@ -193,20 +308,50 @@ footer{
 @media (max-width: 640px) {
     header {
         padding: 20px 0; 
-        text-align: center; /* Change to center alignment */
+        text-align: center; 
     }
     
     nav {
-        display: flex; /* Add flexbox display */
-        flex-direction: column; /* Change to column layout */
-        align-items: center; /* Center items horizontally */
+        display: flex; 
+        flex-direction: column; 
+        align-items: center;
     }
     
     nav h2 {
         font-size: 2rem; 
-        padding: 10px; /* Add padding for better spacing */
+        padding: 10px; 
+    }
+
+    main{
+      display: flex;
+      flex-direction: column;
+      max-height: 100vh;
+      min-height: 100vh;
+      
+       
+    }
+    #user-output{
+      
+      flex-direction: column;
+      margin: 20px;
+    }
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer a {
+        flex-direction: row;
+        justify-content: center;
+        margin: 5px 0;
+    }
+
+    footer i {
+        margin-bottom: 0;
+        margin-right: 5px;
     }
 }
+
 
 
 
