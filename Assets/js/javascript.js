@@ -9,7 +9,7 @@ const plantSelectionEl = document.querySelector(".plant-section");
 const subContainerEl = document.querySelector(".sub-container");
 
 const plantUrl =
-  "https://perenual.com/api/species-list?key=sk-jAe1665854bf31df35608";
+  "https://perenual.com/api/species-list?key=sk-bhbL66591d47ea19a5709";
 
 function plantDisplay() {
   fetch(plantUrl)
@@ -45,7 +45,7 @@ function plantDetails() {
   }
 
   fetch(
-    `https://perenual.com/api/species/details/${selectedPlantId}?key=sk-jAe1665854bf31df35608`
+    `https://perenual.com/api/species/details/${selectedPlantId}?key=sk-bhbL66591d47ea19a5709`
   )
     .then((response) => response.json())
     .then((data) => {
