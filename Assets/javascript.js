@@ -196,3 +196,7 @@ if (city !== null) {
         wRes.appendChild(resWeather);  
     });
 }
+
+function myFunction() {
+    document.getElementById("saveBtn").innerHTML = localStorage.getItem("Notes");
+}
