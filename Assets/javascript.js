@@ -25,125 +25,49 @@ $(document).ready(function() {
 
     // Load plant data from localStorage when the page is loaded
     loadSavedPlantData();
+
+    // Load saved note from localStorage when the page is loaded
+    loadNote();
+
+    // Event listener for save note button
+    $('#saveNote').on('click', function() {
+        saveNote();
+    });
 });
 
 // Function to fetch plant data
 function fetchPlantData() {
-    fetch(apiUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {
-            const plants = data.data;
-            populatePlantSelect(plants);
-        })
-        .catch(error => console.error('Error fetching plant data:', error));
-};
+    // Existing code...
+}
 
 // Function to populate the plant select dropdown
 function populatePlantSelect(plants) {
-    const select = $('#plant-select');
-    select.empty(); // Clear existing options
-    select.append('<option value="">Select a plant</option>');
-    plants.forEach(plant => {
-        select.append(`<option value="${plant.id}">${plant.common_name}</option>`);
-    });
-};
+    // Existing code...
+}
 
 // Function to fetch and display plant details
 function fetchPlantDetails(plantId) {
-    fetch(`https://perenual.com/api/species/details/${plantId}?key=sk-nV5Y664fa6394ed345548`)
-        .then(response => response.json())
-        .then(data => {
-            if (data && data.id) {
-                displayPlantInfo(data);
-                // Store plant data in local storage
-                savePlantData(data);
-            } else {
-                console.error('Unexpected plant details data structure:', data);
-            }
-        })
-        .catch(error => console.error('Error fetching plant details:', error));
-};
+    // Existing code...
+}
 
 // Function to save plant data in localStorage
 function savePlantData(plant) {
-    let savedPlantData = localStorage.getItem('plantData');
-
-    // Ensure savedPlantData is a valid array
-    try {
-        savedPlantData = JSON.parse(savedPlantData);
-        if (!Array.isArray(savedPlantData)) {
-            savedPlantData = [];
-        }
-    } catch (e) {
-        savedPlantData = [];
-    }
-
-    // Add the new plant data
-    savedPlantData.push(plant);
-
-    // Save back to localStorage
-    localStorage.setItem('plantData', JSON.stringify(savedPlantData));
+    // Existing code...
 }
 
 // Function to remove plant data from localStorage
 function removePlantData(plantId) {
-    let savedPlantData = localStorage.getItem('plantData');
-
-    // Ensure savedPlantData is a valid array
-    try {
-        savedPlantData = JSON.parse(savedPlantData);
-        if (!Array.isArray(savedPlantData)) {
-            savedPlantData = [];
-        }
-    } catch (e) {
-        savedPlantData = [];
-    }
-
-    // Filter out the plant to remove
-    const updatedPlantData = savedPlantData.filter(plant => plant.id !== plantId);
-
-    // Save back to localStorage
-    localStorage.setItem('plantData', JSON.stringify(updatedPlantData));
+    // Existing code...
 }
 
 // Function to load plant data from localStorage
 function loadSavedPlantData() {
-    let savedPlantData = localStorage.getItem('plantData');
-
-    // Ensure savedPlantData is a valid array
-    try {
-        savedPlantData = JSON.parse(savedPlantData);
-        if (Array.isArray(savedPlantData)) {
-            savedPlantData.forEach(plant => {
-                displayPlantInfo(plant);
-            });
-        }
-    } catch (e) {
-        console.error('Error loading saved plant data:', e);
-    }
+    // Existing code...
 }
 
 // Function to display plant information
 function displayPlantInfo(plant) {
-    const infoDiv = $('#plant-info-main');
-    const plantInfo = `
-        <div class="plant-info" data-plant-id="${plant.id}">
-            <h3>${plant.common_name || 'N/A'}</h3>
-            <p><strong>Scientific Name:</strong> ${plant.scientific_name ? plant.scientific_name.join(', ') : 'N/A'}</p>
-            <p><strong>Other Names:</strong> ${plant.other_name ? plant.other_name.join(', ') : 'N/A'}</p>
-            <p><strong>Cycle:</strong> ${plant.cycle || 'N/A'}</p>
-            <p><strong>Sunlight:</strong> ${plant.sunlight ? plant.sunlight.join(', ') : 'N/A'}</p>
-            <p><strong>Watering:</strong> ${plant.watering || 'N/A'}</p>
-            <img src="${plant.default_image ? plant.default_image.original_url : ''}" alt="${plant.common_name || 'N/A'}">
-            <button class="dismiss-button">Dismiss</button>
-        </div>
-    `;
-    infoDiv.append(plantInfo);
+    // Existing code...
 }
 
 // Weather API
@@ -195,4 +119,18 @@ if (city !== null) {
         wRes.appendChild(resTemp);
         wRes.appendChild(resWeather);  
     });
+}
+
+// Function to save note to localStorage
+function saveNote() {
+    const noteText = $('#noteText').val();
+    localStorage.setItem('note', noteText);
+}
+
+// Function to load note from localStorage
+function loadNote() {
+    const savedNote = localStorage.getItem('note');
+    if (savedNote) {
+        $('#noteText').val(savedNote);
+    }
 }
