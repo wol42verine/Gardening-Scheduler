@@ -8,13 +8,13 @@ body {
   background-image: url(./images/background.jpg);
   background-size: cover; 
   background-position: center; 
-  background-repeat: no-repeat; 
+  background-repeat: repeat; 
   width: 100%;
   height: 100vh;
 }
 
 header{
-  background-color: rgb(82, 37, 3);
+  background-color: rgb(2, 62, 6);
   height: 80px;
   width: 100%;
 }
