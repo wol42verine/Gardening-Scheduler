@@ -153,7 +153,7 @@ function getCityWeather() {
 
                     const weatherDescriptionEl = document.createElement('p');
                     weatherDescriptionEl.textContent = `Description: ${data.weather[0].description}`;
-                    outputDisplayWeather.style.display = 'block';  
+                   
                     
 
       
