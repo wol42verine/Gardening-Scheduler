@@ -5,7 +5,7 @@
 :root {
     --font-family: 'Lora', serif;
     --font-color: #ffffff;
-    --background-color: #6B8E23;
+    --primary: #6B8E23;
 }
 
 
@@ -35,6 +35,7 @@ button {
 input, button, textarea, select {
     font: inherit;
 }
+/* end of CSS RESET */
 
 body{
     margin: 0;
@@ -50,7 +51,7 @@ body{
 }
 
 header {
-  background-color: #6B8E23; 
+  background-color: var(--primary); 
   color: white; 
   padding: 20px; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
@@ -79,7 +80,7 @@ footer{
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #6B8E23; 
+    background-color: var(--primary); 
     color: #fff; 
     display: flex;
     justify-content: space-around; 
@@ -116,7 +117,6 @@ footer p {
   margin-top: 150px;
   background: transparent;
   
-  
 }
 
 
@@ -139,7 +139,7 @@ footer p {
 
 .plant-section select.full-width {
   
-  border: 2px solid #6B8E23; 
+  border: 2px solid var(--primary); 
   border-radius: 5px; 
   padding: 8px; 
   font-size: 16px;
@@ -150,7 +150,7 @@ footer p {
 
 .plant-section button.display-info, .button-p {
   
-  background-color: #6B8E23; 
+  background-color: var(--primary); 
   color: white; 
   border: none; 
   border-radius: 5px; 
@@ -162,14 +162,12 @@ footer p {
 
 .plant-section button.display-info:hover {
   
-  background-color: #446617; 
+  background-color: var(--primary); 
 }
 
 .button-p:hover{
-  background-color: #446617; 
+  background-color: var(--primary); 
 }
-
-
 
 .reveal {
   background-color: #ffffff; 
@@ -186,7 +184,7 @@ footer p {
 }
 
 .weather-btn {
-  background-color: #6B8E23; 
+  background-color: var(--primary); 
   color: #ffffff; 
   padding: 10px 20px; 
   border: none; 
@@ -196,23 +194,13 @@ footer p {
 }
 
 .weather-btn:hover {
-  background-color: #578b26;
+  background-color: var(--primary);
 }
-
-
-
-
-
-
-
-
 
 .form-header{
   color: black;
   
 }
-
-
 
 .checkPlantInfo{
   font-size: 1.2rem;
@@ -234,7 +222,7 @@ footer p {
 
 
 .PlantLoading{
-  color: red;
+  color: var(--primary);
 }
 
 .pwarning{
@@ -276,21 +264,8 @@ footer p {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* RESPONSIVNESS */
+/* Media query for screens smaller than 639px */
 
 @media (max-width: 760px) {
  .user-input{
@@ -299,12 +274,7 @@ footer p {
   }
 }
 
-
-
-
-
-
-/* Media query for screens wider than 639px */
+/* Media query for screens smaller than 639px */
 @media (max-width: 640px) {
     header {
         padding: 20px 0; 
@@ -353,40 +323,3 @@ footer p {
 }
 
 
-
-
-
-
-
-/* When using `max-width` as the breakpoint, you must go from widest to narrowest to avoid conflict */
-
-
-
-
-
-
-
-/* Tablets - header changes color */
-/* @media screen and (max-width: 992px) {
-    body {
-      background: #772014;
-      color: #c5c9e2;
-    }
-  } */
-  
-  /* Large smartphones - navbar changes color */
-  /* @media screen and (max-width: 768px) {
-    body {
-      background-color: #bb8588;
-      color: #02061b;
-    }
-  } */
-  
-  /* Small smartphones - image placeholders change color */
-  /* @media screen and (max-width: 576px) {
-    body {
-      background-color: #8ac4ff;
-      color: #3a2403;
-    }
-  } */
-  
