@@ -239,14 +239,22 @@ footer p {
     justify-content: center;
 }
 
-.user-output-plant, .user-output-weather {
+.user-output-plant , .user-output-weather{
+
  padding: 1vh;
     border-radius: 6px;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
     max-width: 90vw;
     min-width: 30vw;
     background: white;
+
 }
+
+
+.user-output-weather{
+  display: none;
+}
+
 
 .image-output {
   min-width: 100px;
