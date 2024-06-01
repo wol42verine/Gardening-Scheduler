@@ -2,14 +2,14 @@ $(document).foundation();
 
 const apiUrl = 'https://perenual.com/api/species-list?key=sk-nV5Y664fa6394ed345548&page=1';
 
-$(document).ready(function() {
+$(document).ready(function () {
     // Event listener for modal button
-    $('button[data-open="plant-modal"]').on('click', function() {
+    $('button[data-open="plant-modal"]').on('click', function () {
         fetchPlantData();
     });
 
     // Event listener for plant selection
-    $('#plant-select').on('change', function() {
+    $('#plant-select').on('change', function () {
         const plantId = $(this).val();
         if (plantId) {
             fetchPlantDetails(plantId);
@@ -17,7 +17,7 @@ $(document).ready(function() {
     });
 
     // Event listener for dismiss button using event delegation
-    $(document).on('click', '.dismiss-button', function() {
+    $(document).on('click', '.dismiss-button', function () {
         const plantId = $(this).closest('.plant-info').data('plant-id');
         removePlantData(plantId);
         $(this).closest('.plant-info').remove(); // Remove the closest parent with class 'plant-info'
@@ -164,7 +164,7 @@ submitBtn.addEventListener('click', function () {
 
 // get info for API request URL
 
-const urlParams = new URLSearchParams(window.location.search); 
+const urlParams = new URLSearchParams(window.location.search);
 city = urlParams.get('cname');
 
 // If city has a value then do request to API
@@ -173,28 +173,28 @@ if (city !== null) {
     let queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
 
     fetch(queryURL)
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        console.log(data);
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
 
-        const resCity = document.createElement('p');
-        const resTemp = document.createElement('p');
-        const resWeather = document.createElement('p');
+            const resCity = document.createElement('p');
+            const resTemp = document.createElement('p');
+            const resWeather = document.createElement('p');
 
-        const kelvinTemp = data.main.temp;
-        const celsiusTemp = kelvinTemp - 273.15;
-        const fahrenheitTemp = (kelvinTemp - 273.15) * 9/5 + 32;
+            const kelvinTemp = data.main.temp;
+            const celsiusTemp = kelvinTemp - 273.15;
+            const fahrenheitTemp = (kelvinTemp - 273.15) * 9 / 5 + 32;
 
-        resCity.textContent = `${data.name}, ${data.sys.country}`;
-        resTemp.textContent = `Temperature: ${celsiusTemp.toFixed(2)} °C / ${fahrenheitTemp.toFixed(2)} °F`;
-        resWeather.textContent = `Weather: ${data.weather[0].main}`;
+            resCity.textContent = `${data.name}, ${data.sys.country}`;
+            resTemp.textContent = `Temperature: ${celsiusTemp.toFixed(2)} °C / ${fahrenheitTemp.toFixed(2)} °F`;
+            resWeather.textContent = `Weather: ${data.weather[0].main}`;
 
-        wRes.appendChild(resCity);
-        wRes.appendChild(resTemp);
-        wRes.appendChild(resWeather);  
-    });
+            wRes.appendChild(resCity);
+            wRes.appendChild(resTemp);
+            wRes.appendChild(resWeather);
+        });
 }
 
 
@@ -206,28 +206,30 @@ const userNotesOutput = document.querySelector('#outputNotes');
 const viewNotesButton = document.querySelector('#viewNotes');
 var note;
 
-        // save user notes to Local Storage
-        // needs to be fixed because it saves only the tast user note
-saveButton.addEventListener('click', function (event) {
-    event.preventDefault();
+// save user notes to Local Storage
+// needs to be fixed because it saves only the tast user note
 
-        if (userNoteInput.value) {
+// saveButton.addEventListener('click', function (event) {
+//     event.preventDefault();
 
-            localStorage.setItem('userGardenNote', userNoteInput.value);
-            note = document.createElement('li');
-            note.textContent = localStorage.getItem('userGardenNote');
-            console.log(note.textContent);
-            userNotesOutput.appendChild(note);
-            userNoteInput.value = "";
-        };
-});
+//         if (userNoteInput.value) {
 
-        // display list of user notes by user reqeust if user click on View My Notes button
-        //  needs to be fixed because it dispalies only the tast user note because Local Storage has only last note
-viewNotesButton.addEventListener('click', function (event) {
-    event.preventDefault();
-            note = document.createElement('li');
-            note.textContent = localStorage.getItem('userGardenNote');
-            console.log(note.textContent);
-            userNotesOutput.appendChild(note);
-});
+//             localStorage.setItem('userGardenNote', userNoteInput.value);
+//             note = document.createElement('li');
+//             note.textContent = localStorage.getItem('userGardenNote');
+//             console.log(note.textContent);
+//             userNotesOutput.appendChild(note);
+//             userNoteInput.value = "";
+//         };
+// });
+
+// display list of user notes by user reqeust if user click on View My Notes button
+//  needs to be fixed because it dispalies only the tast user note because Local Storage has only last note
+
+// viewNotesButton.addEventListener('click', function (event) {
+//     event.preventDefault();
+//     note = document.createElement('li');
+//     note.textContent = localStorage.getItem('userGardenNote');
+//     console.log(note.textContent);
+//     userNotesOutput.appendChild(note);
+// });

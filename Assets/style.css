@@ -1,65 +1,35 @@
 
 body {
-    background-color:rgb(82, 37, 3);
-    color: #c5c9e2;
+  background-color:rgb(2, 58, 7);
+  color: #c5c9e2;
 }
 
 #wrap {
-  background-image: url(./images/background.jpg);
-  background-size: cover; 
-  background-position: center; 
-  background-repeat: repeat; 
-  width: 100%;
-  height: 100vh;
+background-image: url(./images/background.jpg);
+background-size: cover; 
+background-position: center; 
+background-repeat: repeat; 
+width: 100%;
+height: 100vh;
 }
 
 header{
-  background-color: rgb(2, 62, 6);
-  height: 80px;
-  width: 100%;
+background-color: rgb(82, 37, 3);
+height: 80px;
+width: 100%;
 }
 
 
 .grid-container{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 80px;
+display: flex;
+justify-content: space-around;
+align-items: center;
+margin-top: 80px;
 }
-
-#saveBtn,
-#viewNotes {
-  padding: 10px;
-  margin-bottom: 7px;
-  border-radius: 3px;
-  background-color: rgb(23, 121, 186);
-  color: #c5c9e2;
-  display: block;
-}
-
-textarea {
-  width: 50%;
-  height: 150px;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #eef1ef;
-  color: rgb(5, 54, 18);
-  font-size: 16px;
-}
-
-/* When using `max-width` as the breakpoint, you must go from widest to narrowest to avoid conflict */
-
-
 
 @media screen and (max-width: 768px) {
-    .grid-container{
-      flex-direction: column;
-      margin-left: 80px;
-    }
+  .grid-container{
+    flex-direction: column;
+    margin-left: 80px;
   }
-
-
-
-
+}
