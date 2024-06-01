@@ -27,8 +27,27 @@ header{
   margin-top: 80px;
 }
 
+#saveBtn,
+#viewNotes {
+  padding: 10px;
+  margin-bottom: 7px;
+  border-radius: 3px;
+  background-color: rgb(23, 121, 186);
+  color: #c5c9e2;
+  display: block;
+}
 
-
+textarea {
+  width: 50%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #eef1ef;
+  color: rgb(5, 54, 18);
+  font-size: 16px;
+}
 
 /* When using `max-width` as the breakpoint, you must go from widest to narrowest to avoid conflict */
 
