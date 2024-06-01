@@ -170,7 +170,7 @@ city = urlParams.get('cname');
 // If city has a value then do request to API
 
 if (city !== null) {
-    let queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
+    let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
 
     fetch(queryURL)
         .then(function (response) {
