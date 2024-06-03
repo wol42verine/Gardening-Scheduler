@@ -54,4 +54,4 @@ Collaborators: Shobha Ganesh, Joey Sandoval, Maryna Martseniuk, Kai Burgess, Oli
 
 ![Screenshot of the webpage](https://github.com/wol42verine/Project-1/blob/main/image_720.png?raw=true)
                                 
-
+Check out the live demo [here](https://wol42verine.github.io/Project-1/)
