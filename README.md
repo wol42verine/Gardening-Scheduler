@@ -52,6 +52,6 @@ W3 Schools -      HTML Inputs: https://www.w3schools.com/html/html_form_input_ty
                   
 Collaborators: Shobha Ganesh, Joey Sandoval, Maryna Martseniuk, Kai Burgess, Olivier Ndicunguye
 
-Optional Stuff:
+![Screenshot of the webpage](https://github.com/wol42verine/Project-1/blob/main/image_720.png?raw=true)
                                 
 
